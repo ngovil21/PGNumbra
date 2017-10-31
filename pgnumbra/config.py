@@ -65,10 +65,10 @@ def parse_args():
     parser.add_argument('-pgpu', '--pgpool-url',
                         help='Address of PGPool to load accounts from and/or update their details.')
 
-    parser.add_argument('-min', '--min-level', type=int, default=1,
+    parser.add_argument('-min', '--min-level', type=int, default=0,
                         help='Minimum level of accounts to request from PGPool')
 
-    parser.add_argument('-max', '--max-level', type=int, default=40,
+    parser.add_argument('-max', '--max-level', type=int, default=0,
                         help='Maximum level of accounts to request from PGPool')
 
     accs = parser.add_mutually_exclusive_group(required=True)
