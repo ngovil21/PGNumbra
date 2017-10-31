@@ -196,7 +196,7 @@ if os.path.isfile(ACC_INFO_FILE):
 
 init_proxies()
 
-accounts = load_accounts()
+accounts = load_accounts(min_level=cfg_get('min_level'), max_level=cfg_get('max_level'))
 
 init_account_info_file(accounts)
 

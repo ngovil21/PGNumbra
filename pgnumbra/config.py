@@ -65,12 +65,20 @@ def parse_args():
     parser.add_argument('-pgpu', '--pgpool-url',
                         help='Address of PGPool to load accounts from and/or update their details.')
 
+    parser.add_argument('-min', '--min-level', type=int, default=1,
+                        help='Minimum level of accounts to request from PGPool')
+
+    parser.add_argument('-max', '--max-level', type=int, default=40,
+                        help='Maximum level of accounts to request from PGPool')
+
     accs = parser.add_mutually_exclusive_group(required=True)
     accs.add_argument('-pgpn', '--pgpool-num-accounts', type=int, default=0,
                       help='Load this many banned or new accounts from PGPool. --pgpool-url required.')
 
     accs.add_argument('-a', '--accounts-file',
                       help='Load accounts from CSV file containing "auth_service,username,passwd" lines.')
+
+
 
     args = parser.parse_args()
 

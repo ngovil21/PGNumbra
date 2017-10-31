@@ -35,7 +35,7 @@ def shorten(s):
     return s[:3]
 
 
-def load_accounts():
+def load_accounts(min_level=1, max_level=40):
     accounts = []
     if cfg_get('accounts_file'):
         log.info("Loading accounts from file {}.".format(cfg_get('accounts_file')))
@@ -65,6 +65,8 @@ def load_accounts():
         request = {
             'system_id': get_pgpool_system_id(),
             'count': cfg_get('pgpool_num_accounts'),
+            'min_level': min_level,
+            'max_level': max_level,
             'banned_or_new': True
         }
 
